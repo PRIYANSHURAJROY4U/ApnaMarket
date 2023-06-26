@@ -19,7 +19,7 @@ export default function Product(props) {
             {props.product.qty}
           </button>
           <button type="button" class="btn bg-secondary" onClick={() => {
-             props.incrementquantity(props.index);
+             props.incrementQuantity(props.index);
           }} >
             Right
           </button>
