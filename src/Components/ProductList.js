@@ -1,12 +1,19 @@
-import React from 'react'
-import Product from './Product'
+import React from 'react';
+import Product from './Product';
 
 export default function ProductList(props) {
-  return (
-    
-    props.productList.map((product,i) => {
-        return <Product product={product} key={i}  incrementquantity={props.incrementquantity} index={i} />
-    })
+  const { productList, incrementQuantity } = props;
 
-  )
+  return (
+    <>
+      {productList.map((product, index) => (
+        <Product
+          key={index}
+          product={product}
+          incrementQuantity={incrementQuantity}
+          index={index}
+        />
+      ))}
+    </>
+  );
 }

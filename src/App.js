@@ -2,37 +2,35 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './Components/Navbar';
 import ProductList from './Components/ProductList';
-import React, {useState} from 'react';
-
+import React, { useState } from 'react';
 
 function App() {
-  const productList = [
+  const [productList, setProductList] = useState([
     {
-      price:150000,
-      name : "Iphone 12 pro",
+      price: 150000,
+      name: "Iphone 12 pro",
       qty: 0,
     },
     {
-      price:15000,
-      name : "Redmi 12 pro",
+      price: 15000,
+      name: "Redmi 12 pro",
       qty: 0,
     }
-  ]
+  ]);
 
-     [productList , setProductList] = useState([]);
+  const incrementQuantity = (index) => {
+    let newProductList = [...productList];
+    newProductList[index].qty++;
+    setProductList(newProductList);
+  };
 
-   const incrementquantity = (index) => {
-    let newproductList = [...productList]
-    newproductList[index].qty++
-    setProductlist(newproductList);
-   }
   return (
     <>
-    <Navbar/>
-    <main className='container mt-6r'> 
-    <ProductList productList={productList}  incrementquantity={incrementquantity}/>
-    </main>
-     </>
+      <Navbar />
+      <main className='container mt-6r'>
+        <ProductList productList={productList} incrementQuantity={incrementQuantity} />
+      </main>
+    </>
   );
 }
 
